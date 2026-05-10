@@ -73,7 +73,10 @@ class StoreController extends ChangeNotifier {
   String get userEmail => _userEmail;
 
   double get cartTotal {
-    return _cart.fold(0, (sum, item) => sum + item.product.price * item.quantity);
+    return _cart.fold(
+      0,
+      (sum, item) => sum + item.product.price * item.quantity,
+    );
   }
 
   void setNavIndex(int index) {

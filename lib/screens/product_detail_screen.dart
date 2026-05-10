@@ -33,13 +33,20 @@ class ProductDetailScreen extends StatelessWidget {
           const SizedBox(height: 8),
           Text(product.category, style: Theme.of(context).textTheme.bodyMedium),
           const SizedBox(height: 12),
-          Text(formatCurrency(product.price),
-              style: Theme.of(context).textTheme.titleLarge),
+          Text(
+            formatCurrency(product.price),
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
           const SizedBox(height: 8),
-          Text('Stock: ${product.stock}',
-              style: Theme.of(context).textTheme.bodySmall),
+          Text(
+            'Stock: ${product.stock}',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
           const SizedBox(height: 16),
-          Text(product.description, style: Theme.of(context).textTheme.bodyMedium),
+          Text(
+            product.description,
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
           const SizedBox(height: 24),
           ElevatedButton.icon(
             onPressed: product.stock == 0

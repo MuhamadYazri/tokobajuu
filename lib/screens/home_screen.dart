@@ -5,7 +5,11 @@ import '../utils/formatters.dart';
 import 'product_detail_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key, required this.products, required this.onAddToCart});
+  const HomeScreen({
+    super.key,
+    required this.products,
+    required this.onAddToCart,
+  });
 
   final List<Product> products;
   final void Function(BuildContext, Product) onAddToCart;
@@ -136,26 +140,23 @@ class _HeroSection extends StatelessWidget {
               children: [
                 Text(
                   'AUTUMN / WINTER',
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelSmall
-                      ?.copyWith(color: Colors.white70),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.labelSmall?.copyWith(color: Colors.white70),
                 ),
                 const SizedBox(height: 8),
                 Text(
                   'New Arrivals',
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineLarge
-                      ?.copyWith(color: Colors.white),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.headlineLarge?.copyWith(color: Colors.white),
                 ),
                 const SizedBox(height: 8),
                 Text(
                   'Minimal pieces built for everyday calm and confidence.',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge
-                      ?.copyWith(color: Colors.white70),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyLarge?.copyWith(color: Colors.white70),
                 ),
                 const SizedBox(height: 16),
                 ElevatedButton(
@@ -180,10 +181,7 @@ class _HeroSection extends StatelessWidget {
 }
 
 class _SectionHeader extends StatelessWidget {
-  const _SectionHeader({
-    required this.title,
-    required this.actionLabel,
-  });
+  const _SectionHeader({required this.title, required this.actionLabel});
 
   final String title;
   final String actionLabel;
@@ -194,10 +192,7 @@ class _SectionHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(title, style: Theme.of(context).textTheme.headlineSmall),
-        TextButton(
-          onPressed: () {},
-          child: Text(actionLabel.toUpperCase()),
-        ),
+        TextButton(onPressed: () {}, child: Text(actionLabel.toUpperCase())),
       ],
     );
   }
@@ -216,13 +211,15 @@ class _BentoGrid extends StatelessWidget {
         if (!isWide) {
           return Column(
             children: categories
-                .map((item) => Padding(
-                      padding: const EdgeInsets.only(bottom: 16),
-                      child: AspectRatio(
-                        aspectRatio: 4 / 3,
-                        child: _CategoryCard(item: item),
-                      ),
-                    ))
+                .map(
+                  (item) => Padding(
+                    padding: const EdgeInsets.only(bottom: 16),
+                    child: AspectRatio(
+                      aspectRatio: 4 / 3,
+                      child: _CategoryCard(item: item),
+                    ),
+                  ),
+                )
                 .toList(),
           );
         }
@@ -231,10 +228,7 @@ class _BentoGrid extends StatelessWidget {
           height: 420,
           child: Row(
             children: [
-              Expanded(
-                flex: 2,
-                child: _CategoryCard(item: categories[0]),
-              ),
+              Expanded(flex: 2, child: _CategoryCard(item: categories[0])),
               const SizedBox(width: 16),
               Expanded(
                 child: Column(
@@ -293,18 +287,16 @@ class _CategoryCard extends StatelessWidget {
               children: [
                 Text(
                   item.title,
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium
-                      ?.copyWith(color: Colors.white),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.titleMedium?.copyWith(color: Colors.white),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   item.subtitle,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodySmall
-                      ?.copyWith(color: Colors.white70),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodySmall?.copyWith(color: Colors.white70),
                 ),
               ],
             ),
@@ -365,8 +357,10 @@ class _TrendingCard extends StatelessWidget {
           const SizedBox(height: 12),
           Text(product.name, style: Theme.of(context).textTheme.bodyMedium),
           const SizedBox(height: 4),
-          Text(formatCurrency(product.price),
-              style: Theme.of(context).textTheme.labelSmall),
+          Text(
+            formatCurrency(product.price),
+            style: Theme.of(context).textTheme.labelSmall,
+          ),
         ],
       ),
     );

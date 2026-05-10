@@ -14,22 +14,26 @@ class OrderHistoryScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Order History')),
       body: orders.isEmpty
           ? Center(
-              child: Text('No orders yet',
-                  style: Theme.of(context).textTheme.titleMedium),
+              child: Text(
+                'No orders yet',
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
             )
           : ListView(
               padding: const EdgeInsets.all(16),
               children: orders
-                  .map((order) => Card(
-                        margin: const EdgeInsets.only(bottom: 12),
-                        child: ListTile(
-                          title: Text('Order ${order.id}'),
-                          subtitle: Text(
-                            '${order.items.length} items - ${order.createdAt.toLocal().toString().split(".").first}',
-                          ),
-                          trailing: Text(formatCurrency(order.total)),
+                  .map(
+                    (order) => Card(
+                      margin: const EdgeInsets.only(bottom: 12),
+                      child: ListTile(
+                        title: Text('Order ${order.id}'),
+                        subtitle: Text(
+                          '${order.items.length} items - ${order.createdAt.toLocal().toString().split(".").first}',
                         ),
-                      ))
+                        trailing: Text(formatCurrency(order.total)),
+                      ),
+                    ),
+                  )
                   .toList(),
             ),
     );
